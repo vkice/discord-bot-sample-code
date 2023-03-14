@@ -1,0 +1,21 @@
+{
+  "family": "bot-ecs-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "runtimePlatform": {
+      "operatingSystemFamily": "LINUX",
+      "cpuArchitecture": "X86_64"
+  },
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "bot-image-task",
+      "image": "123456789.dkr.ecr.us-east-1.amazonaws.com/bot-image-repo:latest",
+      "essential": true
+    }
+  ],
+  "executionRoleArn": "arn:aws:iam::123456789:role/ecsTaskExecutionRole"
+}

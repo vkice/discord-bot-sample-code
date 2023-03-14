@@ -1,0 +1,25 @@
+pipelines:
+  default:
+  - step:
+      script:
+      # build the image
+      - docker build -t bot-image-repo .
+      # push image to AWS ECR
+      - pipe: atlassian/aws-ecr-push-image:2.0.0
+        variables:
+          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY
+          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_KEY
+          AWS_DEFAULT_REGION: 'us-east-1'
+          IMAGE_NAME: 'bot-image-repo'
+  - step:
+      script:
+      # update ECS Task Definition
+      - pipe: atlassian/aws-ecs-deploy:1.7.0
+        variables:
+          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY
+          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_KEY
+          AWS_DEFAULT_REGION: 'us-east-1'
+          CLUSTER_NAME: 'bot-ecs-cluster'
+          SERVICE_NAME: 'bot-ecs-service'
+          #TASK_DEFINITION: 'task-definition.json' # uncomment to update task definitions
+          FORCE_NEW_DEPLOYMENT: 'true'
