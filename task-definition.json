@@ -14,8 +14,18 @@
     {
       "name": "bot-image-task",
       "image": "123456789.dkr.ecr.us-east-1.amazonaws.com/bot-image-repo:latest",
-      "essential": true
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+                "awslogs-create-group": "true",
+                "awslogs-group": "discord-bot-grp",
+                "awslogs-region": "us-east-1",
+                "awslogs-stream-prefix": "discord-bot-strm"
+                }
+            }
     }
   ],
-  "executionRoleArn": "arn:aws:iam::123456789:role/ecsTaskExecutionRole"
+  "executionRoleArn": "arn:aws:iam::123456789:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123456789:role/ecsTaskExecutionRole"
 }
