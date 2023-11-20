@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN mkdir -p /app; python3 -m pip install -U "py-cord[speed]" "python-dotenv"
+RUN mkdir -p /app; python3 -m pip install -U -r ./requirements.txt
 
 WORKDIR /app
 

@@ -4,7 +4,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-bot = discord.Bot(intents=discord.Intents.all())
+bot = discord.Bot(command_prefix="!",
+                   intents=discord.Intents.all(),
+                   status=discord.Status.online
+                   )
 
 @bot.slash_command(name="hello",str=None)
 async def hello(ctx):
