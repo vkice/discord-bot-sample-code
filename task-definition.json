@@ -14,6 +14,8 @@
     {
       "name": "bot-image-task",
       "image": "123456789.dkr.ecr.us-east-1.amazonaws.com/bot-image-repo:latest",
+      "cpu": "256",
+      "memory": "512",
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
