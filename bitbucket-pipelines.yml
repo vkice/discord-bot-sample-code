@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=./bitbucket-pipelines.yml
 pipelines:
   default:
   - step:
@@ -5,7 +6,7 @@ pipelines:
       # build the image
       - docker build -t bot-image-repo .
       # push image to AWS ECR
-      - pipe: atlassian/aws-ecr-push-image:2.0.0
+      - pipe: atlassian/aws-ecr-push-image:2.2.0
         variables:
           AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY
           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_KEY
@@ -14,7 +15,7 @@ pipelines:
   - step:
       script:
       # update ECS Task Definition
-      - pipe: atlassian/aws-ecs-deploy:1.7.0
+      - pipe: atlassian/aws-ecs-deploy:1.10.0
         variables:
           AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY
           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_KEY
