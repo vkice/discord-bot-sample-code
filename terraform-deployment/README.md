@@ -14,8 +14,8 @@ Within this repository, you'll find the following files:
 - `outputs.tf`: Provides the ECR Repo URL and the ARN for the BitBucket role, for use in your `bitbucket-pipelines.yml`.
 - `terraform.tf`: Initializes Terraform with the specified versions of the Terraform and AWS providers.
 - `variables.tf`: Centralized location for all customizable variables, including names and parameters.
-- `bitbucket/`: Contains the modularized BitBucket OIDC Role.
-- `infra/`: Contains all other AWS components such as ECR, ECS, and IAM resources, broken down into modules.
+- `modules/bitbucket/`: Contains the modularized BitBucket OIDC Role.
+- `modules/infra/`: Contains all other AWS components such as ECR, ECS, and IAM resources, broken down into modules.
 
 ## Important Notes
 
