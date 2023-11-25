@@ -7,17 +7,17 @@ variable "bitbucket_role_name" {
 
 variable "repository_uuid" {
   type = string
-  default = "{c1296ade-78a6-4e9b-b366-76930a3613f7}"
+  default = "{uuid-goes-here}"
 }
 
 variable "oidc_url" {
   type = string
-  default = "https://api.bitbucket.org/2.0/workspaces/vkice/pipelines-config/identity/oidc"
+  default = "https://example"
 }
 
 variable "client_id" {
   type = list(string)
-  default = ["ari:cloud:bitbucket::workspace/3c5440f9-32ec-4c76-a4a7-50f0f23a3ac1"]
+  default = ["ari:cloud:bitbucket::workspace/example123"]
 }
 
 variable "thumbprint_list" {
